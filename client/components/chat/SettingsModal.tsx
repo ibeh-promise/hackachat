@@ -18,7 +18,7 @@ export function SettingsModal() {
             <Button className="bg-black py-10 text-white rounded-md w-[200px]">Dark</Button>
             <Button variant="ghost" className="py-10 rounded-md border-border w-[200px]">System</Button>
           </div>
-        </div>
+        </div> 
         <div className="my-3">
           <p className="text-[10px] font-normal text-zinc-500">TEXT SIZE</p>
           <div className="flex justify-center items-center gap-3 my-2">
