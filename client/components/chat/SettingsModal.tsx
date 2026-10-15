@@ -6,12 +6,27 @@ import { Settings, CircuitBoard, User, Database, Info } from "lucide-react"
 
 export function SettingsModal() {
 
-  const [selectedSettings, setSelectedSettings] = useState("")
+  const [selectedSettings, setSelectedSettings] = useState("General")
 
   const General = () => {
     return (
       <div>
-        general
+        <div className="my-3">
+          <p className="text-[10px] font-normal text-zinc-500">INTERFACE THEME</p>
+          <div className="flex justify-center items-center gap-3 my-2">
+            <Button variant="ghost" className="py-10 rounded-md border-border w-[200px]">light</Button>
+            <Button className="bg-black py-10 text-white rounded-md w-[200px]">Dark</Button>
+            <Button variant="ghost" className="py-10 rounded-md border-border w-[200px]">System</Button>
+          </div>
+        </div>
+        <div className="my-3">
+          <p className="text-[10px] font-normal text-zinc-500">TEXT SIZE</p>
+          <div className="flex justify-center items-center gap-3 my-2">
+            <Button variant="ghost" className="p-3 px-5 rounded-md border-border w-[200px]">Small</Button>
+            <Button className="bg-black p-3 px-5 text-white rounded-md w-[200px]">Medium</Button>
+            <Button variant="ghost" className="p-3 px-5 rounded-md border-border w-[200px]">Large</Button>
+          </div>
+        </div>
       </div>
     )
   }
@@ -51,36 +66,36 @@ export function SettingsModal() {
         <div className="w-500px p-2 px-5">
           <p >Settings</p>
           <span className="text-zinc-500 text-[12px]">Customize Hackachat appearance, models, and personal instructions.</span>
-              <div className="bg-muted/50">
+              <div className="bg-muted/50 p-1">
               <div className=" flex ">
-                <Button variant="ghost" className="" onClick={() => setSelectedSettings("general")}>
+                <Button variant="ghost" className={selectedSettings === "General" ? "text-black bg-white border-border" : "text-zinc-400"} onClick={() => setSelectedSettings("General")}>
                   <Settings />
                   General
                   </Button>    
-                <Button variant="ghost" className="text-zinc-400" onClick={() => setSelectedSettings("Model")}>
+                <Button variant="ghost" className={selectedSettings === "Model" ? "text-black bg-white border-border" : "text-zinc-400"} onClick={() => setSelectedSettings("Model")}>
                   <CircuitBoard />
                   Model
                   </Button>
-                <Button variant="ghost" className="text-zinc-400" onClick={() => setSelectedSettings("Personal")}>
+                <Button variant="ghost" className={selectedSettings === "Personal" ? "text-black bg-white border-border" : "text-zinc-400"} onClick={() => setSelectedSettings("Personal")}>
                   <User />
                   Personal
                   </Button>
-                <Button variant="ghost" className="text-zinc-400" onClick={() => setSelectedSettings("Data")}>
+                <Button variant="ghost" className={selectedSettings === "Data" ? "text-black bg-white border-border" : "text-zinc-400"} onClick={() => setSelectedSettings("Data")}>
                   <Database />
                   Data
                   </Button>
-                <Button variant="ghost" className="text-zinc-400" onClick={() => setSelectedSettings("About")}>
+                <Button variant="ghost" className={selectedSettings === "About" ? "text-black bg-white border-border" : "text-zinc-400"} onClick={() => setSelectedSettings("About")}>
                   <Info />
                   About
                   </Button>
                   </div>
                   </div>
                   <div className="">
-                    {selectedSettings == "general" ? 
+                    {selectedSettings == "General" ? 
                         <General /> : selectedSettings == "Model" ? 
                        <Model /> : selectedSettings == "Personal" ?
-                       <Personal /> : selectedSettings == "data" ? 
-                       <Data /> : <About />
+                       <Personal /> : selectedSettings == "Aata" ? 
+                       <Data /> : selectedSettings == "About" ? <About /> : <General />
                     }
                   </div>
               </div>
