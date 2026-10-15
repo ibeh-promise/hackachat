@@ -16,7 +16,7 @@ import {
 import { AlertDialogTrigger, AlertDialog } from "@/components/ui/alert-dialog";
 import {SettingsModal} from "@/components/chat/SettingsModal"
 
-export default function () {
+export default function sidebar() {
   const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
@@ -73,19 +73,18 @@ export default function () {
             Sign in with Hack Club
           </span>
         </Button>
-          <AlertDialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <AlertDialogTrigger asChild>
+
           <Button
             variant={"ghost"}
             className="shrink-0 flex justify-start items-center mx-4 mt-1 w-50"
-            onClick={() => setIsModalOpen}
+            onClick={() => setIsModalOpen(true)}
           >
             <Settings size="20" className="text-zinc-600" />
             <p className="text-xs text-zinc-500 ml-2">Settings</p>
           </Button>
-        </AlertDialogTrigger>
-            <SettingsModal />
-          </AlertDialog>
+          {
+            isModalOpen && <SettingsModal/> 
+          }
       </div>
     </aside>
   );
